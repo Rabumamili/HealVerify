@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 25% 97%;
+    --foreground: 222 47% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 9%;
+    --primary: 187 72% 32%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 28% 93%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 24% 94%;
+    --muted-foreground: 215 14% 42%;
+    --accent: 187 45% 92%;
+    --accent-foreground: 187 72% 22%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 22% 88%;
+    --input: 214 22% 88%;
+    --ring: 187 72% 32%;
+    --radius: 0.75rem;
+    --verified: 158 64% 38%;
+    --verified-foreground: 0 0% 100%;
+    --pending: 32 95% 48%;
+    --pending-foreground: 0 0% 100%;
+    --sidebar: 222 47% 7%;
+    --sidebar-foreground: 210 25% 96%;
+    --sidebar-muted: 215 16% 58%;
+    --sidebar-accent: 187 72% 42%;
+    --chart-1: 187 72% 42%;
+    --chart-2: 158 64% 45%;
+    --chart-3: 0 72% 55%;
+    --chart-4: 262 52% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        hsl(187 72% 32% / 0.08),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 0%,
+        hsl(158 64% 38% / 0.05),
+        transparent
+      );
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply border border-white/60 bg-card/80 shadow-sm backdrop-blur-md;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-emerald-600 bg-clip-text text-transparent;
+  }
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out forwards;
+    opacity: 0;
+  }
+  .animate-count {
+    animation: count-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes count-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
